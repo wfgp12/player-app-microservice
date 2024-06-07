@@ -46,6 +46,10 @@ const Player = sequelize.define('Player', {
     userId: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    clubId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
     }
 });
 
