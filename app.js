@@ -30,7 +30,7 @@ app.post('/api/players', [
             throw new Error('Permiso denegado');
         }
 
-        const player = await Player.create({ ...req.body, userId: data._id });
+        const player = await Player.create({ ...req.body, userId: data.data._id });
         res.status(201).json(successResponse(player));
     } catch (error) {
         res.status(500).json(errorResponse('Database error: ' + error.message, 500));
@@ -54,7 +54,7 @@ app.get('/api/players', async (req, res) => {
 
         const dataSheet = await Player.findOne({
             where: {
-                userId: data._id
+                userId: data.data._id
             }
         });
         res.status(201).json(successResponse(dataSheet));
